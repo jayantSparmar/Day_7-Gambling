@@ -2,8 +2,13 @@ package com.bridgelaqbz;
 
 public class Gambling_project {
 
+    public static int stack = 100;
+    public static int bet = 1;
+
     public static void main(String[] args) {
-        System.out.println("welcome to the gambling world");
-        
+        System.out.println("Welcome to the Gambling Simulator Game");
+        System.out.println(stack + " " + bet);
     }
 }
+
+
