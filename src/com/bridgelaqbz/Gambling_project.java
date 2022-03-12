@@ -24,24 +24,26 @@ public class Gambling_project {
             System.out.println(" ");
         }
     }
-
     //UC3
-    public static int wonOrLost50Percent() {
-        while (STAKE > 50 && STAKE < 150) {
+    public static int wonOrLost50Percent(){
+        while(STAKE > 50 && STAKE < 150) {
             double winOrLoss = Math.floor(Math.random() * 10) % 2;
             if (BET == winOrLoss) {
                 System.out.println("Gambler has Won");
-                STAKE = STAKE + 1;
+                STAKE = STAKE +1;
                 System.out.println("The current stake is " + STAKE);
-            } else {
+            }
+            else
+            {
                 System.out.println("The Gambler has lost");
-                STAKE = STAKE - 1;
+                STAKE = STAKE -1;
                 System.out.println("The remaining stake is: " + STAKE);
             }
         }
-        if (STAKE == 50) {
+        if(STAKE == 50) {
             System.out.println("The Gambler LOST 50% of stake, So he have to resign for the day. ");
-        } else {
+        }
+        else {
             System.out.println("The Gambler WON 50% of stake, So he have to resign for the day. ");
         }
         System.out.println(" ");
@@ -66,11 +68,11 @@ public class Gambling_project {
     }
 
     //UC5
-    public static void eachMonth() {
+    public static void eachMonth(){
         int Stake = STAKE;
         int month = 1;
 
-        while (month <= 1) {
+        while (month<=1) {
             int day = 1;
             System.out.println("Month " + month);
 
@@ -98,40 +100,40 @@ public class Gambling_project {
     }
 
     //UC6
-    public static PrintStream luckyUnluckyDay() {
+    public static PrintStream luckyUnluckyDay(){
         int Stake = STAKE;
         int month = 1;
         int day = 1;
         int UnluckyDay = 1;
         int LuckyDay = 1;
-        int UnluckyMonth = 1;
+        int UnluckyMonth= 1;
         int LuckyMonth = 1;
         int LuckyDayMoney = STAKE;
         int UnluckyDayMoney = STAKE;
 
-        while (month <= 12) {
+        while (month<=12) {
             day = 1;
-            while (day <= 30) {
+            while(day<=30) {
                 Stake = STAKE;
                 Random rand = new Random();
                 int dailyGamePlayed = rand.nextInt(10);
 
                 for (int i = 0; i < dailyGamePlayed; i++) {
 
-                    int randcheck = (int) Math.floor(Math.random() * 10) % 2;
-                    if (randcheck == BET)
+                    int randcheck = (int)Math.floor(Math.random()*10) % 2;
+                    if (randcheck==BET)
                         Stake = Stake + 1;
                     else
                         Stake = Stake - 1;
                 }
 
-                if (LuckyDayMoney < Stake) {
+                if(LuckyDayMoney<Stake){
                     LuckyDay = day;
                     LuckyMonth = month;
                     LuckyDayMoney = Stake;
                 }
 
-                if (UnluckyDayMoney > Stake) {
+                if(UnluckyDayMoney>Stake) {
                     UnluckyDay = day;
                     UnluckyMonth = month;
                     UnluckyDayMoney = Stake;
@@ -140,8 +142,23 @@ public class Gambling_project {
             }
             month++;
         }
-        System.out.println("Lucky Day " + LuckyDay + " in the month " + LuckyMonth + " Maximum money won is " + (LuckyDayMoney - Stake) + " $ ");
-        return System.out.printf("Unlucky Day " + UnluckyDay + " in the month " + UnluckyMonth + " Maximum  money lost is " + (Stake - UnluckyDayMoney) + " $ ");
+        System.out.println("Lucky Day "+LuckyDay+" in the month "+LuckyMonth+" Maximum money won is "+(LuckyDayMoney - Stake)+" $ ");
+        return System.out.printf("Unlucky Day "+UnluckyDay+" in the month "+UnluckyMonth+" Maximum  money lost is " +(Stake - UnluckyDayMoney)+" $ ");
+    }
+
+    //UC7
+    public static void nextMonth() {
+        while (true) {
+            if (STAKE > 100) {
+                System.out.println("Gambler win and total amount = " + STAKE);
+                System.out.println("gambler won so he will continue the game");
+            } else if (STAKE<100)
+            {
+                System.out.println("Gambler loss and total amount = " + STAKE);
+                System.out.println("gambler lost all the money so he cant keep playing");
+                break;
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -153,5 +170,6 @@ public class Gambling_project {
         twentyDays();
         eachMonth();
         luckyUnluckyDay();
+        nextMonth();
     }
 }
