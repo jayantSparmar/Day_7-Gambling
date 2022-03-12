@@ -146,21 +146,6 @@ public class Gambling_project {
         return System.out.printf("Unlucky Day "+UnluckyDay+" in the month "+UnluckyMonth+" Maximum  money lost is " +(Stake - UnluckyDayMoney)+" $ ");
     }
 
-    //UC7
-    public static void nextMonth() {
-        while (true) {
-            if (STAKE > 100) {
-                System.out.println("Gambler win and total amount = " + STAKE);
-                System.out.println("gambler won so he will continue the game");
-            } else if (STAKE<100)
-            {
-                System.out.println("Gambler loss and total amount = " + STAKE);
-                System.out.println("gambler lost all the money so he cant keep playing");
-                break;
-            }
-        }
-    }
-
     public static void main(String[] args) {
         System.out.println("Welcome to the Gambling Simulator Game");
         System.out.println(STAKE + " " + BET);
